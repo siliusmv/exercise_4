@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1522519749960.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1939035511",
+    "id" : "AB22AFD0",
+    "lastKnownWriteTime" : 1522571595,
+    "last_content_update" : 1522571595137,
+    "path" : "~/Documents/8. semester/maskinlæring/exercises/exercise_4/code.R",
+    "project_path" : "code.R",
+    "properties" : {
+        "cursorPosition" : "43,33",
+        "scrollLine" : "33",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

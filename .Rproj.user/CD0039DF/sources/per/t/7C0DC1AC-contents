@@ -1,0 +1,90 @@
+---
+title: "TDT4173 -- Assignment 4"
+site: bookdown::bookdown_site
+author: 
+- "Silius Mortensønn Vandeskog (siliusmv)"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: 
+  bookdown::pdf_document2:
+    toc: no
+    fig_caption: yes
+    number_sections: yes
+---
+
+```{r setup, include=FALSE, cache = FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE, autodep = TRUE, warning = FALSE, message = FALSE, error = FALSE, out.width = "70%", fig.align = "center")
+source("code.R")
+knitr::read_chunk("code.R")
+library(reticulate)
+
+```
+
+
+# Theory
+
+## 1)
+
+## 2)
+
+## 3)
+
+
+
+# Programming
+
+```{r}
+# Extract data
+knn_class <- read.csv("dataset/dataset/knn_classification.csv")
+knn_reg <- read.csv("dataset/dataset/knn_regression.csv")
+ada_train <- read.csv("dataset/dataset/adaboost_train.csv")
+ada_test <- read.csv("dataset/dataset/adaboost_test.csv")
+```
+
+
+```{r}
+
+knn(k = 10,
+    data = knn_reg,
+    point = as.vector(as.matrix((knn_reg[124, 1:3]))),
+    type = "reg")
+
+
+knn(k = 10,
+    data = knn_class,
+    point = as.vector(as.matrix((knn_class[124, 1:4]))),
+    type = "class")
+
+
+```
+
+```{python}
+# -*- coding: utf-8 -*-
+import sys
+sys.path.insert(0, "/home/siliusmv/Documents/8. semester/maskinlæring/exercises/exercise_4")
+
+import stupidname as ss
+import numpy as np
+
+
+
+
+knn_class = np.genfromtxt("dataset/dataset/knn_classification.csv", 
+delimiter=",", skip_header=1)
+knn_reg = np.genfromtxt("dataset/dataset/knn_regression.csv", 
+delimiter=",", skip_header=1)
+ada_test = np.genfromtxt("dataset/dataset/adaboost_test.csv", 
+delimiter=",", skip_header=1)
+ada_train = np.genfromtxt("dataset/dataset/adaboost_train.csv", 
+delimiter=",", skip_header=1)
+
+err = ss.testAdaBoost(15, ada_train, ada_test)
+
+print(err)
+
+
+
+
+```
+
+
+

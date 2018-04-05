@@ -1,0 +1,24 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1522519155573.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2759057967",
+    "id" : "7C0DC1AC",
+    "lastKnownWriteTime" : 1522587762,
+    "last_content_update" : 1522587762161,
+    "path" : "~/Documents/8. semester/maskinlæring/exercises/exercise_4/report.Rmd",
+    "project_path" : "report.Rmd",
+    "properties" : {
+        "cursorPosition" : "77,0",
+        "last_setup_crc32" : "7F64032e7f7f5c2",
+        "scrollLine" : "66",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
