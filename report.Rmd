@@ -24,7 +24,10 @@ library(reticulate)
 
 ## 1)
 
+The core idea of deep learning is...
+
 ## 2)
+
 
 ## 3)
 
@@ -39,6 +42,16 @@ knn_reg <- read.csv("dataset/dataset/knn_regression.csv")
 ada_train <- read.csv("dataset/dataset/adaboost_train.csv")
 ada_test <- read.csv("dataset/dataset/adaboost_test.csv")
 ```
+
+
+## 2.1)
+
+We implement a k-NN algorithm from scratch. Then the program is reused in order to implement a k-NN regression and classification. The code can be seen below
+
+```{r knn}
+```
+
+We now use the algorithms with $k = 10$ for the $124^\text{th}$ example of the given data sets. As seen below, the algorithm predicts a value of $1.6$ for the regression and $2$ for the classification.
 
 
 ```{r}

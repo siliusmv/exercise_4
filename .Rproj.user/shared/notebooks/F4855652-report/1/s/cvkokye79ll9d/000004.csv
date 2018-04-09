@@ -1,5 +1,0 @@
-"0","# Extract data"
-"0","knn_class <- read.csv(""dataset/dataset/knn_classification.csv"")"
-"0","knn_reg <- read.csv(""dataset/dataset/knn_regression.csv"")"
-"0","ada_train <- read.csv(""dataset/dataset/adaboost_train.csv"")"
-"0","ada_test <- read.csv(""dataset/dataset/adaboost_test.csv"")"
