@@ -6,6 +6,8 @@ Created on Sat Mar 31 21:33:39 2018
 """
 import numpy as np
 from sklearn import tree
+import sklearn
+import matplotlib.pyplot as plt
 
 
 
@@ -83,14 +85,18 @@ def testAdaBoost(max_iter, train_data, test_data):
         
     return(errors)
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+def getData():
+    from sklearn.datasets import load_digits
+    from sklearn.model_selection import train_test_split as TTS
+    digits = load_digits()
+    
+    X_train, X_test, y_train, y_test = TTS(digits.data, digits.target, random_state=42)
+    
+    return(X_train, X_test, y_train, y_test)
+
+
+
+
+
+

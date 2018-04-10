@@ -12,7 +12,7 @@ output:
 ---
 
 ```{r setup, include=FALSE, cache = FALSE}
-knitr::opts_chunk$set(echo = TRUE, cache = TRUE, autodep = TRUE, warning = FALSE, message = FALSE, error = FALSE, out.width = "70%", fig.align = "center")
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, error = FALSE, out.width = "70%", fig.align = "center")
 source("code.R")
 knitr::read_chunk("code.R")
 library(reticulate)
@@ -70,15 +70,18 @@ knn(k = 10,
 
 ```
 
-```{python}
+```{python, results = "hide", echo = TRUE}
 # -*- coding: utf-8 -*-
 import sys
-sys.path.insert(0, "/home/siliusmv/Documents/8. semester/maskinlæring/exercises/exercise_4")
-
-import stupidname as ss
 import numpy as np
+import os
+import sklearn
+import matplotlib.pyplot as plt
 
 
+cwd = os.getcwd()
+sys.path.insert(0, cwd)
+import stupidname as ss
 
 
 knn_class = np.genfromtxt("dataset/dataset/knn_classification.csv", 
@@ -90,9 +93,16 @@ delimiter=",", skip_header=1)
 ada_train = np.genfromtxt("dataset/dataset/adaboost_train.csv", 
 delimiter=",", skip_header=1)
 
+
+```
+
+
+
+```{python}
 err = ss.testAdaBoost(15, ada_train, ada_test)
 
-print(err)
+for e in err:
+  print("%.2f" % e)
 
 
 
@@ -100,4 +110,57 @@ print(err)
 ```
 
 
+
+```{python}
+
+X_train, X_test, y_train, y_test = ss.getData()
+
+
+from sklearn.neighbors import KNeighborsClassifier as KNN
+
+
+neigh = KNN()
+neigh.fit(X_train, y_train)
+
+pred_neigh = neigh.predict(X_test)
+
+
+
+
+from sklearn import svm
+
+clf = svm.SVC()
+clf.fit(X_train, y_train)
+
+pred_svm = clf.predict(X_test)
+
+
+
+from sklearn.ensemble import RandomForestClassifier as RFC
+
+forest = RFC()
+forest.fit(X_train, y_train)
+
+pred_forest = forest.predict(X_test)
+
+
+
+
+
+from sklearn.metrics import confusion_matrix
+from mlxtend.plotting import plot_confusion_matrix
+
+cnf_neigh = confusion_matrix(y_test, pred_neigh)
+cnf_svm = confusion_matrix(y_test, pred_svm)
+cnf_forest = confusion_matrix(y_test, pred_forest)
+
+
+fig_neigh, ax = plot_confusion_matrix(conf_mat = cnf_neigh)
+plt.show()
+fig_svm, ax = plot_confusion_matrix(conf_mat = cnf_svm)
+plt.show()
+fig_forest, ax = plot_confusion_matrix(conf_mat = cnf_forest)
+plt.show()
+
+```
 
