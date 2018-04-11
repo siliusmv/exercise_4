@@ -1,4 +1,6 @@
 
+## ---- knn
+
 # Euclidian distance function
 eucDist <- function(all_points, point){
   
