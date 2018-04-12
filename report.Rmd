@@ -77,7 +77,7 @@ knn(k = 10,
 
 ## 2.2)
 
-We implement tha AdaBoost algorithm from scratch. The code can be seen in the print-out below.
+We implement tha AdaBoost algorithm from scratch. The code can be seen in the print-out below. We use the `DecisionTreeClassifier`  \textit{DecisionTreeClassifier}from `sklearn` with a miximum depth of 1 as our weak learner.
 
 ```{python}
 
@@ -189,9 +189,22 @@ for e in err:
 
 ```
 
-
+We see that the error rate steadily declines for one to 10 iterations of the algorithm. After this, the error rate starts oscillating. This might be an indicator of overfitting. A safe value for the number of iterations with this data seems to be around 10. After this we cannot trust the algorithm any more, as the error might be much larger. It could als be smaller, but it is hard to know.
 
 ```{python}
+
+# Loads data for task 2.3)
+def getData():
+    from sklearn.datasets import load_digits
+    from sklearn.model_selection import train_test_split as TTS
+    digits = load_digits()
+    
+    X_train, X_test, y_train, y_test = TTS(digits.data, digits.target, random_state=42)
+    
+    return(X_train, X_test, y_train, y_test)
+
+
+
 
 X_train, X_test, y_train, y_test = ss.getData()
 
