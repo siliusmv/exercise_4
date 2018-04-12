@@ -77,7 +77,7 @@ knn(k = 10,
 
 ## 2.2)
 
-We implement tha AdaBoost algorithm from scratch. The code can be seen in the print-out below. We use the `DecisionTreeClassifier`  \textit{DecisionTreeClassifier}from `sklearn` with a miximum depth of 1 as our weak learner.
+We implement tha AdaBoost algorithm from scratch. The code can be seen in the print-out below. We use the `DecisionTreeClassifier` from `sklearn` with a miximum depth of 1 as our weak learner.
 
 ```{python}
 
@@ -191,6 +191,10 @@ for e in err:
 
 We see that the error rate steadily declines for one to 10 iterations of the algorithm. After this, the error rate starts oscillating. This might be an indicator of overfitting. A safe value for the number of iterations with this data seems to be around 10. After this we cannot trust the algorithm any more, as the error might be much larger. It could als be smaller, but it is hard to know.
 
+## 2.3)
+
+The code used for this task can be found below.
+
 ```{python}
 
 # Loads data for task 2.3)
@@ -236,7 +240,11 @@ forest.fit(X_train, y_train)
 
 pred_forest = forest.predict(X_test)
 
+```
 
+We now want to test the different predictors. To do this we create and plot the confusion matrix for each prediciton. These can be seen below. The true label is found along the y-axis ,and the predicted label is found along the x-axis.
+
+```{python}
 
 
 
@@ -256,4 +264,6 @@ fig_forest, ax = plot_confusion_matrix(conf_mat = cnf_forest)
 plt.show()
 
 ```
+
+We can see that both the kNN and random forest implementationw worked quite well. The kNN had a lot less errors than the random forest, though. We see that the SVM algorithm faultily classifies extremely many of the labels as 8, thus making it perform very poorly. There was not any similar patterns for the other algorithms. Apart from the predictions of the label 8, all other predictions from the SVM method are correct, though. This will of course change when we change the parameters in the three methods. It is very hard to compare the methods with unlimited possible parameter values, though. This is the reason why we useed the "standard" parameters defined in `sklearn` for all the methods.
 
