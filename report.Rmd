@@ -12,7 +12,7 @@ output:
 ---
 
 ```{r setup, include=FALSE, cache = FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, error = FALSE, out.width = "70%", fig.align = "center")
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, error = FALSE, out.width = "70%", fig.align = "center", cache = TRUE)
 source("code.R")
 knitr::read_chunk("code.R")
 library(reticulate)
